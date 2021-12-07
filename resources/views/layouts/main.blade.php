@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <title>Експертна система якості води Житомирської області | @yield('title')</title>
     <meta charset="UTF-8">
@@ -30,6 +30,7 @@
 
     @yield('custom-css')
 </head>
+
 <body>
     @include('includes.header')
 

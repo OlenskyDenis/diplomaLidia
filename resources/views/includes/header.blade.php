@@ -1,4 +1,3 @@
-
   <header id="header" class="fixed-top d-flex align-items-center {{ Route::is('home') ? "header-transparent" : " " }}">
     <div class="container d-flex justify-content-between align-items-center">
 
@@ -10,7 +9,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="active " href="index.html">Home</a></li>
+          <li><a class="active " href={{route("home")}}>Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
