@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <title>Експертна система якості води Житомирської області | @yield('title')</title>
+  <title> @yield('title') | Експертна система якості води Житомирської області </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,7 +10,7 @@
     <link href={{ asset('storage/cs.css')}}  rel="stylesheet">
 
     <!-- Favicons -->
-    <link href={{ asset('storage/assets/img/favicon.png') }}  rel="icon">
+    <link href={{ asset('storage/assets/img/logo1.png') }}  rel="icon">
     <link href={{ asset('storage/assets/img/apple-touch-icon.png') }}  rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -34,7 +34,7 @@
 <body>
     @include('includes.header')
 
-    <div class="container">
+    <div class="">
         @yield('content')
     </div>
 
