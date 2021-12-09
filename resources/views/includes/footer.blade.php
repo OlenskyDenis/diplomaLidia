@@ -9,19 +9,16 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Головна</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Про нас</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Керівництво</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Документи</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Новини</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Послуги</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Новини</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Послуги та тарифи</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Робота</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Структура</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Діяльність</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Якість води</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Контакти</a></li>
             </ul>
           </div>
 
@@ -48,10 +45,4 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
-      </div>
-
-    </div>
   </footer><!-- End Footer -->
