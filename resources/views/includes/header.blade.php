@@ -15,8 +15,6 @@
                   </li>
                   <li><a href={{ route('services') }} class='{{ Route::is('services') ? 'active' : ' ' }}'>Послуги
                           та тарифи</a></li>
-                  <li><a href={{ route('news') }} class='{{ Route::is('news') ? 'active' : ' ' }}'>Новини</a>
-                  </li>
                   <li><a href={{ route('contact') }}
                           class='{{ Route::is('contact') ? 'active' : ' ' }}'>Контакти</a></li>
               </ul>
