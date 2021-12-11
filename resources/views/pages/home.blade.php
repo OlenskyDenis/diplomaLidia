@@ -27,7 +27,7 @@
         <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
             <div class="container">
 
-                   <div class="row">
+                <div class="row">
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
                             <div class="member-info">
@@ -79,16 +79,16 @@
                 </div>
             </div>
         </section>
-   {{-- корисні посилання --}}
+        {{-- корисні посилання --}}
         <section class="services">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
                         <div class="icon-box icon-box-pink">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi sint occaecati cupiditate non provident</p>
+                            <h4 class="title"><a href='https://moz.gov.ua/'>МОЗ України</a></h4>
+                            <p class="description">Міністерство охорони здоров'я України — центральний орган виконавчої
+                                влади України у галузі охорони здоров'я.</p>
                         </div>
                     </div>
 

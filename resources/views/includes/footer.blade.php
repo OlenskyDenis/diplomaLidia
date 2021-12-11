@@ -7,18 +7,17 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Корисні посилання</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Головна</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Про нас</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Новини</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href={{route('home')}}>Головна</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href={{route('about')}}>Про нас</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Послуги</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Послуги та тарифи</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Якість води</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Контакти</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href={{route('services')}}>Послуги та тарифи</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href={{route('research')}}>Якість води</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href={{route('contact')}}>Контакти</a></li>
             </ul>
           </div>
 
