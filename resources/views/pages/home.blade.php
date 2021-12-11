@@ -79,43 +79,49 @@
                 </div>
             </div>
         </section>
+        <div class="section-title">
+            <h2>Корисні посилання</h2>
+        </div>
         {{-- корисні посилання --}}
         <section class="services">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
                         <div class="icon-box icon-box-pink">
-                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                            <h4 class="title"><a href='https://moz.gov.ua/'>МОЗ України</a></h4>
+                            <div class="icon"><i class="bx bx-health"></i></div>
+                            <h4 class="title"><a href='https://moz.gov.ua/' target="_blank">МОЗ України</a></h4>
                             <p class="description">Міністерство охорони здоров'я України — центральний орган виконавчої
-                                влади України у галузі охорони здоров'я.</p>
+                                влади України у галузі охорони здоров'я</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box icon-box-cyan">
                             <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur</p>
+                            <h4 class="title"><a href="https://phc.org.ua/" target="_blank">ДУ "Центр громадського
+                                    здоров'я МОЗ України"</a></h4>
+                            <p class="description">Заклад охорони здоров’я, що відповідає за збереження і зміцнення
+                                здоров’я населення, епідеміологічний нагляд і
+                                біологічну безпеку</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box icon-box-green">
-                            <div class="icon"><i class="bx bx-tachometer"></i></div>
-                            <h4 class="title"><a href="">Magni Dolores</a></h4>
-                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum</p>
+                            <div class="icon"><i class="bx bx-building-house"></i></div>
+                            <h4 class="title"><a href="https://oz.zt.gov.ua/" target="_blank">Управління охорони
+                                    здоров'я Житомирської ОДА</a></h4>
+                            <p class="description">Управління охорони здоров'я Житомирської обласної державної
+                                адміністрації</p>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box icon-box-blue">
                             <div class="icon"><i class="bx bx-world"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                blanditiis praesentium voluptatum deleniti atque</p>
+                            <h4 class="title"><a href="https://zt-dpss.gov.ua/" target="_blank">Головне управління
+                                    Держпродспоживслужби в Житомирській області</a></h4>
+                            <p class="description">Управління здійснює державний нагляд (контроль) за дотриманням законодавства про захист прав споживачів</p>
                         </div>
                     </div>
 

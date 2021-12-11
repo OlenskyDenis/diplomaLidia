@@ -34,7 +34,9 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h3>Про центр</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>На сторінках веб-сайту ви знайдете корисну інформацію про завдання
+                та основні напрямки діяльності Установи згідно чинного законодавства України та
+                нормативно-правових актів.</p>
             <div class="social-links mt-3">
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
             </div>

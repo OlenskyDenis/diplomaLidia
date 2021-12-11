@@ -93,13 +93,13 @@
 
             <div class="section-title">
                 <h2>Підрозділи центру</h2>
-                <p>Випробувальний центр ДУ «Житомирський обласний лабораторний центр МОЗ України ( далі - ВЦ ) акредитований
+                {{-- <p>Випробувальний центр ДУ «Житомирський обласний лабораторний центр МОЗ України ( далі - ВЦ ) акредитований
                     на проведення випробувань у відповідності з вимогами згідно ДСТУ ISO/ IEC 17025:2006, що засвідчує
                     атестат про акредитацію № 2Н 1432 виданий Національним агентством з акредитації України.
                     <br />
                     Основною функцією ВЦ є проведення випробувань в закріпленій сфері акредитації, оформлення результатів
                     випробувань і видачі їх замовнику.
-                </p>
+                </p> --}}
             </div>
 
             <div class="testimonials-carousel swiper">
@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="testimonial-item swiper-slide">
-                        <img src={{ asset('storage/assets/img//activity/par.jpg') }} class="testimonial-img" alt="">
+                        <img src={{ asset('storage/assets/img//activity/virus.jpg') }} class="testimonial-img" alt="">
                         <h3>Лабораторія паразитології</h3>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -203,73 +203,74 @@
             <div class="row">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
                     <div class="icon-box icon-box-pink">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                        <h4 class="title"><a href="">Здійснення досліджень</a></h4>
-                        <p class="description">Здійснення досліджень щодо безпеки факторів, що можуть небезпечно впливати на стан здоров'я людини</p>
+                        <div class="icon"><i class="bx bx-pie-chart-alt-2"></i></div>
+                        <h4 class="title">Здійснення досліджень</h4>
+                        <p class="description">Здійснення мікробіологічних, вірусологічних, паразитологічних, санітарно-
+                            гігієнічних та інших
+                            досліджень</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box icon-box-cyan">
-                        <div class="icon"><i class="bx bx-file"></i></div>
-                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla pariatur</p>
+                        <div class="icon"><i class="bx bx-error"></i></div>
+                        <h4 class="title">Здійснення медико-санітарних заходів</h4>
+                        <p class="description">Здійснення медико-санітарних заходів з метою недопущення поширення
+                            інфекційної хвороби міжнародного значення
+                        </p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box icon-box-green">
-                        <div class="icon"><i class="bx bx-tachometer"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum</p>
+                        <div class="icon"><i class="bx bxs-factory"></i></div>
+                        <h4 class="title">Дослідження на підприємствах</h4>
+                        <p class="description">Проведення лабораторних досліджень в організаціях з метою оцінки умов для
+                            провадження ними діяльності</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box icon-box-blue">
-                        <div class="icon"><i class="bx bx-world"></i></div>
-                        <h4 class="title"><a href="">Nemo Enim</a></h4>
-                        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                            praesentium voluptatum deleniti atque</p>
+                        <div class="icon"><i class="bx bxs-check-circle"></i></div>
+                        <h4 class="title">Дезінфекційні заходи</h4>
+                        <p class="description">Проведення профілактичних та поточних дезінфекційних заходів</p>
                     </div>
                 </div>
 
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
-                    <div class="icon-box icon-box-pink">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                            excepturi sint occaecati cupiditate non provident</p>
+                    <div class="icon-box icon-box-green">
+                        <div class="icon"><i class="bx bxs-vial"></i></div>
+                        <h4 class="title">Випробування продукції</h4>
+                        <p class="description">Проведення випробувань продукції та сировини за показниками безпечності
+                            для здоров’я</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box icon-box-cyan">
-                        <div class="icon"><i class="bx bx-file"></i></div>
-                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla pariatur</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-box icon-box-green">
-                        <div class="icon"><i class="bx bx-tachometer"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box icon-box-blue">
-                        <div class="icon"><i class="bx bx-world"></i></div>
-                        <h4 class="title"><a href="">Nemo Enim</a></h4>
-                        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                            praesentium voluptatum deleniti atque</p>
+                        <div class="icon"><i class="bx bx-body"></i></div>
+                        <h4 class="title">Оцінка впливу зовнішніх факторів на людину</h4>
+                        <p class="description">Проведення оцінки безпечності впливу на людину фізичних, хімічних,
+                            біологічних факторів середовища</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box icon-box-pink">
+                        <div class="icon"><i class="bx bx-first-aid"></i></div>
+                        <h4 class="title">Зберігання медичних препаратів</h4>
+                        <p class="description">Зберігання, облік, розподіл, доставка медичних і ветеринарних
+                            препаратів</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box icon-box-cyan">
+                        <div class="icon"><i class="bx bxl-baidu"></i></div>
+                        <h4 class="title">Розведення і реалізація лабораторних тварин</h4>
+                        <p class="description">Розведення і реалізація лабораторних тварин</p>
                     </div>
                 </div>
 

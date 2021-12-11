@@ -11,14 +11,15 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <img src={{ asset("storage/assets/img/kolb.jpeg") }} class="img-fluid" alt="">
+                    <img src={{ asset('storage/assets/img/norma.jpg') }} class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <h3>Аналіз ґрунтових вод родовищ Житомирського регіону</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore
-                        magna aliqua.
+                        Якість води – це поєднання хімічного і біологічного складу та фізичних властивостей води, що
+                        зумовлює її придатність для конкретних видів водокористування. Встановлені значення показників
+                        якості води (фізичні, хімічні та біологічні) називаються нормами якості води і відповідають певним
+                        стандартам.
                     </p>
                     <ul>
                         <li><i class="bi bi-check2-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
@@ -43,7 +44,7 @@
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
         <div class="container">
 
-               <div class="row">
+            <div class="row">
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
