@@ -56,6 +56,15 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
+                            <select class="form-control" name="id_research" id="id_research"
+                                placeholder="Категорія питання" required>
+                                <option value="other">Категорія питання</option>
+                                @foreach ($research_types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
                             <input type="text" class="form-control" name="subject" id="subject" placeholder="Тема"
                                 required>
                         </div>
