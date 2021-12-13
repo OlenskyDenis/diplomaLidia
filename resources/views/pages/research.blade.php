@@ -71,7 +71,7 @@
                             <h4>Walter White</h4>
                         </div>
                         <div class="member-img">
-                            <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt="">
+                            <img src={{ asset('storage/assets/py/my_plot.png') }} class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et

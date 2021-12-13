@@ -12,6 +12,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name("contact");
 Route::get('/about', [AboutController::class, 'index'])->name("about");
 Route::get('/services', [ServiceController::class, 'index'])->name("services");
 Route::get('/research', [ResearchController::class, 'index'])->name("research");
+//-
+Route::get('/python', [ResearchController::class, 'python'])->name("python");
 
 
 Route::group(['prefix' => 'admin'], function () {
