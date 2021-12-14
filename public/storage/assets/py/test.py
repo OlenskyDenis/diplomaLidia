@@ -102,3 +102,43 @@ plt.savefig(tmpfile, format='png')
 encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
 countByDate ='data:image/png;base64, ' + str(encoded)
 print(countByDate)
+
+
+#лінії трендів
+dp1 = df[df['year']<2021]
+dp = dp1[['bsk5','lkp','hsk','year','conformity','roundworms', 'ph']].groupby(df.year).mean()
+
+sns.pairplot(dp.head(1000), y_vars=['bsk5','lkp','hsk','ph','roundworms','conformity'], x_vars=['year'], kind='reg', plot_kws={'line_kws':{'color':'red'}}, height=6)
+tmpfile = io.BytesIO()
+plt.savefig(tmpfile, format='png')
+encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+trendLines ='data:image/png;base64, ' + str(encoded)
+print(trendLines)
+#goooood or bad deposits
+# df = pd.read_csv('D:/Programs/OpenServer/domains/diplom/diplomaLidia/public/storage/assets/py/researches.csv')
+
+# df['year'] = pd.to_datetime(df['data']).dt.year
+# df['month'] = pd.to_datetime(df['data']).dt.month
+# df['roundworms'] = df['roundworms'].astype('bool')
+# df['conformity'] = df['conformity'].astype('bool')
+# df['reservoir'] = df["name"] + " "+ df["region"]+ " "+ df["city"]+ " "+ df["address"]
+
+# df.dropna(inplace=True)
+
+df_clus1=df[['conformity']].groupby(df['deposit']).mean()
+df_clus1['conformity'].loc[df_clus1['conformity'] < 0.5] = 0
+df_clus1['conformity'].loc[df_clus1['conformity'] >= 0.5] = 1
+
+fig.clf()
+plt.clf()
+ax1=df_clus1['conformity'].plot(figsize=(13,5), legend=True)
+ax1.set_xticks(range(len(df_clus1)))
+ax1.set_xticklabels(df_clus1.index,rotation=90)
+ax1.figure.savefig(tmpfile, format='png')
+encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+depGood ='data:image/png;base64, ' + str(encoded)
+print(depGood)
+print("ddsfgdghfytesf")
+
+
+

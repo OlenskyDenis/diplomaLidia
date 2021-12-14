@@ -6,53 +6,47 @@
 @endsection
 
 
-@section("content")
-<div class="chart-container col-4">
-    <div class="pie-chart-container">
-      <canvas id="canvas"></canvas>
-    </div>
-  </div>
-<script>
-var year = {{$year}};
-    var user = {{$user}};
-    var barChartData = {
-        labels: year,
-        datasets: [{
-            label: 'User',
-            backgroundColor: "pink",
-            data: user,
-            trendlineLinear: {
-                style: "rgb(255 ,66 ,255, 0.3)",
-                lineStyle: "dotted|solid",
-                width: 2
-            }
-        }]
-    };
+@section('content')
+    <div class="col-md-12">
+        <form method="POST" action={{ route('research')}}>
+            @csrf <!-- {{ csrf_field() }} -->
+            <label>Charge</label>
+        <select id="name" name="agent_id" id="name" class="form-control">
+            @foreach ($reserv as $type)
+                <option value="{{ $type->id }}">
+                    {{ $type->name }}
+                </option>
+            @endforeach
 
-    window.onload = function() {
-        var ctx = document.getElementById("canvas").getContext("2d");
-        window.myBar = new Chart(ctx, {
-            type: 'bar',
-            data: barChartData,
-            options: {
-                elements: {
-                    rectangle: {
-                        borderWidth: 2,
-                        borderColor: '#ffa0a0',
-                        borderSkipped: 'bottom'
-                    }
-                },
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Yearly User Joined'
-                }
-            }
-        });
-    };
-</script>
+        </select>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="col-md-12"><br>
+        <label>Price</label>
+        <input type="text" class="form-control" id="Price" name="Price" disabled>
+    </div>
+
 @endsection
 @section('custom-js')
+    <script>
+        $(document).ready(function() {
+            $("#name").change(function() {
+                $.ajax({
+                    url: '/graph',
+                    type: 'POST',
+                    dataType: "json",
+                    success: function(data) {
+                        alert(data.val1);
+                    }
+                });
+                var value = this.value;
+                $('#Price').val(value);
+
+            });
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 @endsection

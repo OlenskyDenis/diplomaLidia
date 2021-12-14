@@ -19,23 +19,30 @@ class ResearchController extends Controller
 {
 
     //added 13/12/2021 16:05
-    public function index()
+    public function index(Request $request)
     {
-        $year = ['2015', '2016', '2017', '2018', '2019', '2021'];
+        $research = new Reservoir();
+        $researches = $research->all();
+        //$method = $request->method();
 
-        $user = [];
-        foreach ($year as $key => $value) {
-            $user[] = User::where(\DB::raw("DATE_FORMAT(created_at, '%Y')"), $value)->count();
+        if ($request->isMethod('post')) {
+            // dd($_POST['agent_id']);
+            exec("python storage/assets/py/analyse_string.py 2>&1 " . $_POST['agent_id'], $output);
+            dd($output);
         }
 
-        return view('pages.research2', [
-            'year' => json_encode($year, JSON_NUMERIC_CHECK),
-            'user' => json_encode($user, JSON_NUMERIC_CHECK)
-        ]);
+        return view('pages.research2', ["reserv" => $researches]);
     }
 
     public function python()
     {
+        $research = new Research();
+        $deposits = DB::table('researches')
+            ->join('reservoirs', 'researches.reservoir_id', '=', 'reservoirs.id')
+            ->join('deposits', 'deposits.id', '=', 'reservoirs.deposit_id')
+            ->select('deposits.name as deposit');
+        dd($deposits);
+
         //     $process = new Process(['python', "storage/assets/py/analyse_string.py 2>&1"]);
         //   //  $process = new Process(['python', 'test.py', 'var1', 'var2', 'var3']);
         //   //  $command = "python storage\assets\py\test.py 2>&1";
@@ -52,11 +59,10 @@ class ResearchController extends Controller
 
         //correlation and line trends
         //make csv-file
-        $research = new Research();
         $researches = $research
             ->join('reservoirs', 'researches.reservoir_id', '=', 'reservoirs.id')
             ->join('deposits', 'deposits.id', '=', 'reservoirs.deposit_id')
-            ->select('researches.*', 'reservoirs.*','deposits.name as deposit')
+            ->select('researches.*', 'reservoirs.*', 'deposits.name as deposit')
             ->get();
         $csv = \League\Csv\Writer::createFromFileObject(new \SplFileObject('storage/assets/py/researches.csv', 'w'));
         $csv->insertOne(array_keys($researches[0]->getAttributes()));
@@ -66,9 +72,9 @@ class ResearchController extends Controller
         //execute python-script
         $cmd = 'python storage/assets/py/test.py 2>&1 ';
         $command = escapeshellcmd($cmd);
-        $output = shell_exec($command . "hello");
+        $output = shell_exec($command);
         $array = preg_split("/\r\n|\n|\r/", $output);
-       // dd($array);
+        //dd($array);
         /*
         //chart1
         $all_reservoirs = Reservoir::query('SELECT COUNT(*)');
@@ -104,13 +110,15 @@ class ResearchController extends Controller
             ->get();
         dd($p);
 */
+
+
         $year = ['2015', '2016', '2017', '2018', '2019', '2021'];
 
         $user = [];
         foreach ($year as $key => $value) {
             $user[] = User::where(\DB::raw("DATE_FORMAT(created_at, '%Y')"), $value)->count();
         }
-
+        dump($array);
         return view('pages.research', [
             'year' => json_encode($year, JSON_NUMERIC_CHECK),
             'user' => json_encode($user, JSON_NUMERIC_CHECK),
@@ -118,7 +126,9 @@ class ResearchController extends Controller
             'elbow' => $array[1],
             'clustDot' => $array[2],
             'clustScat' => $array[3],
-            'countByDate' => $array[4]
+            'countByDate' => $array[4],
+            'trendLines' => $array[5],
+            'depGood' => $array[6]
         ]);
     }
 

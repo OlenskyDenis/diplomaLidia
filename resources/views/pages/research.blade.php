@@ -64,6 +64,7 @@
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
         <div class="container">
 
+
             <div class="row">
                 <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
                     <div class="member">
@@ -110,6 +111,8 @@
                             <img src="{{ $clustDot }}" />
                             <img src="{{ $clustScat }}" />
                             <img src="{{ $countByDate }}" />
+                            <img src="{{ $trendLines }}" />
+                            <img src="{{ $depGood }}" />
                         </div>
                         <div class="member-info">
                             <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
@@ -126,6 +129,7 @@
 @endsection
 
 @section('custom-js')
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script>
         var year = <?php echo $year; ?>;

@@ -2,7 +2,7 @@
       <div class="container d-flex justify-content-between align-items-center">
 
           <div class="logo">
-              <a href={{ route('home') }}><img src={{ asset('storage/assets/img/Logotyp.png') }} alt=""
+              <a href={{ route('home') }}><img src={{ asset('storage/assets/img/Logotypv4.png') }} alt=""
                       class="img-fluid"></a>
           </div>
           <nav id="navbar" class="navbar">
