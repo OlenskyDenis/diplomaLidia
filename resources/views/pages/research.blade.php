@@ -65,13 +65,13 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
                             <h4>Walter White</h4>
                         </div>
                         <div class="member-img">
-                            <img src={{ asset('storage/assets/py/my_plot.png') }} class="img-fluid" alt="">
+                            <img src={{ asset('storage/assets/py/corr.png') }} class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
@@ -87,7 +87,7 @@
                             <h4>Walter White</h4>
                         </div>
                         <div class="member-img">
-                            <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt="">
+                            <img src={{ asset('storage/assets/py/linetrend.png') }} class="img-fluid" alt="">
                         </div>
                         <div class="member-info">
                             <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Research;
 use Illuminate\Http\Request;
 //added 13/12/2021 16:05
 use App\Models\User;
@@ -33,7 +34,15 @@ class ResearchController extends Controller
 
     public function python()
     {
-        $cmd = "python storage/assets/py/analyse_string.py";
+        $research = new Research();
+        $researches = $research->all();
+        $csv = \League\Csv\Writer::createFromFileObject(new \SplFileObject('storage/assets/py/researches.csv', 'w'));
+        $csv->insertOne(array_keys($researches[0]->getAttributes()));
+        foreach ($researches as $research) {
+            $csv->insertOne($research->toArray());
+        }
+
+        $cmd = 'python storage/assets/py/analyse_string.py';
         $command = escapeshellcmd($cmd);
         $output = shell_exec($command);
 
