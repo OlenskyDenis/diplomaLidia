@@ -68,7 +68,7 @@
                 <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
-                            <h4>Walter White</h4>
+                            <h4>Кореляція</h4>
                         </div>
                         <div class="member-img">
                             <img src={{ asset('storage/assets/py/corr.png') }} class="img-fluid" alt="">
@@ -97,13 +97,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="col-lg-12 col-md-12 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
                             <h4>Walter White</h4>
                         </div>
                         <div class="member-img">
-                            <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt="">
+                            {{-- <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt=""> --}}
+
+                            <img src="{{ $corr }}" />
+                            <img src="{{ $elbow }}" />
+                            <img src="{{ $clustDot }}" />
+                            <img src="{{ $clustScat }}" />
+                            <img src="{{ $countByDate }}" />
                         </div>
                         <div class="member-info">
                             <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
@@ -120,4 +126,39 @@
 @endsection
 
 @section('custom-js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+        var year = <?php echo $year; ?>;
+        var user = <?php echo $user; ?>;
+        var barChartData = {
+            labels: year,
+            datasets: [{
+                label: 'User',
+                backgroundColor: "pink",
+                data: user
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Yearly User Joined'
+                    }
+                }
+            });
+        };
+    </script>
 @endsection

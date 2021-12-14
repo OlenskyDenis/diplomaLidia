@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "league/csv": "^9.7",
+        "robertogallea/laravel-python": "^0.1.1",
         "tcg/voyager": "^1.5"
     },
     "require-dev": {
