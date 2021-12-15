@@ -22,10 +22,12 @@ df.dropna(inplace=True)
 
 #для графіка кореляції
 dfCorr = df[["lkp", "bsk5", 'hsk', 'soluble_oxygen', 'ph', "roundworms", "conformity"]]
+dfCorr.rename(columns={'lkp': 'ЛКП', 'bsk5': 'БСК5', 'hsk': 'ХСК', 'soluble_oxygen': 'РК', 'roundworms': 'Аскариди', 'conformity': 'Якість'}, inplace=True)
 #  приведення до правильних типів даних
 
 fig, ax = plt.subplots(1, figsize=(12,8))
 sns.heatmap(dfCorr.corr(), annot=True, cmap='BuGn', ax=ax)
+
 # fig.savefig('storage/assets/py/corr.png')
 
 tmpfile = io.BytesIO()
@@ -87,6 +89,7 @@ print(clustersScatter)
 df1 = pd.DataFrame({'labels':pred_y, 'Outcome':df_clus1['conformity']})
 crosstab = pd.crosstab(df1['labels'],df1['Outcome'])
 #print(crosstab)
+
 #к-ть досліджень в залежності від року і місяця
 result = df.groupby([df['year'], df['month']]).size()
 df2 = df[['year', 'month']].drop_duplicates(["year", "month"])
@@ -107,8 +110,10 @@ print(countByDate)
 #лінії трендів
 dp1 = df[df['year']<2021]
 dp = dp1[['bsk5','lkp','hsk','year','conformity','roundworms', 'ph']].groupby(df.year).mean()
+dp.rename(columns={'year': 'Рік', 'lkp': 'ЛКП', 'bsk5': 'БСК5', 'hsk': 'ХСК', 'soluble_oxygen': 'РК', 'roundworms': 'Аскариди', 'conformity': 'Якість'}, inplace=True)
 
-sns.pairplot(dp.head(1000), y_vars=['bsk5','lkp','hsk','ph','roundworms','conformity'], x_vars=['year'], kind='reg', plot_kws={'line_kws':{'color':'red'}}, height=6)
+g = sns.pairplot(dp.head(1000), y_vars=['БСК5','ЛКП','ХСК','ph','Аскариди','Якість'], x_vars=['Рік'], kind='reg', plot_kws={'line_kws':{'color':'red'}}, height=6)
+
 tmpfile = io.BytesIO()
 plt.savefig(tmpfile, format='png')
 encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')

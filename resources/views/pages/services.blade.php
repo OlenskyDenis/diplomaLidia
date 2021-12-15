@@ -29,7 +29,7 @@
                 @endforeach
             </ul>
             <div>
-                <input type="text" name="search" id="search" class="form-control" />
+                <input type="text" placeholder="Почніть вводити текст для пошуку..." name="search" id="search" class="form-control" />
            </div>
             <div class="tab-content">
                 @foreach ($research_types as $type)

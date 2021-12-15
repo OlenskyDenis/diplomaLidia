@@ -65,6 +65,7 @@
         <div class="container">
 
             <canvas id="canvas" height="280" width="600"></canvas>
+
             <canvas id="canvas2" height="280" width="600"></canvas>
 
             <div class="row">
@@ -107,14 +108,17 @@
                         </div>
                         <div class="member-img">
                             {{-- <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt=""> --}}
+                            @foreach ($images as $img)
+                                <img src="{{ $img }}" />
 
-                            <img src="{{ $corr }}" />
+                            @endforeach
+                            {{-- <img src="{{ $corr }}" />
                             <img src="{{ $elbow }}" />
                             <img src="{{ $clustDot }}" />
                             <img src="{{ $clustScat }}" />
                             <img src="{{ $countByDate }}" />
                             <img src="{{ $trendLines }}" />
-                            <img src="{{ $depGood }}" />
+                            <img src="{{ $depGood }}" /> --}}
                         </div>
                         <div class="member-info">
                             <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
@@ -143,6 +147,24 @@
                 data: count
             }]
         };
+        var deposits2 = <?= $deposits2 ?>;
+        var countGood = <?= $countGood ?>;
+        var countBad = <?= $countBad ?>;
+        var barChartData2 = {
+            labels: deposits2,
+            datasets: [{
+                    label: 'Водойми з якісною водою',
+                    //  backgroundColor: "gray",
+                    data: countGood,
+                    backgroundColor: "blue",
+                },
+                {
+                    label: 'Водойми з не якісною водою',
+                    data: countBad,
+                    backgroundColor: "red"
+                }
+            ]
+        };
 
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
@@ -165,34 +187,11 @@
                     }
                 }
             });
-        };
-    </script>
 
-    <script>
-        var deposits = <?= $deposits2 ?>;
-        var countGood = <?= $countGood ?>;
-        var countBad = <?= $countBad ?>;
-        var barChartData = {
-            labels: deposits,
-            datasets: [{
-                    label: 'Водойми з якісною водою',
-                    //  backgroundColor: "gray",
-                    data: countGood,
-                    backgroundColor: "blue",
-                },
-                {
-                    label: 'Водойми з не якісною водою',
-                    data: countBad,
-                    backgroundColor: "red"
-                }
-            ]
-        };
-
-        window.onload = function() {
             var ctx = document.getElementById("canvas2").getContext("2d");
-            window.myBar = new Chart(ctx, {
+            window.myBar2 = new Chart(ctx, {
                 type: 'bar',
-                data: barChartData,
+                data: barChartData2,
                 options: {
                     elements: {
                         rectangle: {
@@ -211,4 +210,5 @@
             });
         };
     </script>
+
 @endsection

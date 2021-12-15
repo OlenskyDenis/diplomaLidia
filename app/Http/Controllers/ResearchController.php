@@ -53,20 +53,18 @@ class ResearchController extends Controller
             $countByDep[] = $dep["count"];
         }
 
-        //хороші кринички до поганих
-        $research = new Research();
-        $deposits = $research
+        //кількість водойм з я
+        $deposits2 = $research
             ->join('reservoirs', 'researches.reservoir_id', '=', 'reservoirs.id')
             ->join('deposits', 'deposits.id', '=', 'reservoirs.deposit_id')
             ->select('deposits.name as deposit', 'researches.conformity', DB::raw("COUNT(researches.conformity) as count"))
             ->groupby('deposits.name', "researches.conformity")
             ->get()
             ->toArray();
-        //  dd($deposits);
         $namesDep2 = [];
         $countByDepGood = [];
         $countByDepBad = [];
-        foreach ($deposits as $dep) {
+        foreach ($deposits2 as $dep) {
             if (!in_array($dep["deposit"], $namesDep2))
                 $namesDep2[] = $dep["deposit"];
             if ($dep["conformity"] == 1)
@@ -75,6 +73,7 @@ class ResearchController extends Controller
                 $countByDepBad[] = $dep["count"];
         }
 
+        //  dd($deposits);
 
         //     $process = new Process(['python', "storage/assets/py/analyse_string.py 2>&1"]);
         //   //  $process = new Process(['python', 'test.py', 'var1', 'var2', 'var3']);
@@ -107,6 +106,13 @@ class ResearchController extends Controller
         $command = escapeshellcmd($cmd);
         $output = shell_exec($command);
         $array = preg_split("/\r\n|\n|\r/", $output);
+
+        $cmd = 'python storage/assets/py/nb.py 2>&1 ';
+        $command = escapeshellcmd($cmd);
+        $set = '[[5900.0,10,8,5,4600,False]]';
+        $output = shell_exec($command . $set);
+      //  dd($output);
+        // $array = preg_split("/\r\n|\n|\r/", $output);
         //  dd($array);
         /*
         //chart1
@@ -145,6 +151,8 @@ class ResearchController extends Controller
 */
 
 
+        //dd($deposits);
+
 
         return view('pages.research', [
             //1 chart
@@ -154,13 +162,13 @@ class ResearchController extends Controller
             'deposits2' => json_encode($namesDep2, JSON_NUMERIC_CHECK),
             'countBad' => json_encode($countByDepBad, JSON_NUMERIC_CHECK),
             'countGood' => json_encode($countByDepGood, JSON_NUMERIC_CHECK),
+            'images' => $array,
             'corr' => $array[0],
             'elbow' => $array[1],
             'clustDot' => $array[2],
             'clustScat' => $array[3],
             'countByDate' => $array[4],
-            'trendLines' => $array[5],
-            'depGood' => $array[6]
+            'trendLines' => $array[5]
         ]);
     }
 
