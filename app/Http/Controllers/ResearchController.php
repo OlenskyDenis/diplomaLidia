@@ -36,12 +36,45 @@ class ResearchController extends Controller
 
     public function python()
     {
+        //загальна к-ть досліджень за родовищами
         $research = new Research();
-        $deposits = DB::table('researches')
+        $deposits = $research
             ->join('reservoirs', 'researches.reservoir_id', '=', 'reservoirs.id')
             ->join('deposits', 'deposits.id', '=', 'reservoirs.deposit_id')
-            ->select('deposits.name as deposit');
-        dd($deposits);
+            ->select('deposits.name as deposit', DB::raw("COUNT(researches.id) as count"))
+            ->groupby('deposits.name')
+            ->get()
+            ->toArray();
+
+        $namesDep = [];
+        $countByDep = [];
+        foreach ($deposits as $dep) {
+            $namesDep[] = $dep["deposit"];
+            $countByDep[] = $dep["count"];
+        }
+
+        //хороші кринички до поганих
+        $research = new Research();
+        $deposits = $research
+            ->join('reservoirs', 'researches.reservoir_id', '=', 'reservoirs.id')
+            ->join('deposits', 'deposits.id', '=', 'reservoirs.deposit_id')
+            ->select('deposits.name as deposit', 'researches.conformity', DB::raw("COUNT(researches.conformity) as count"))
+            ->groupby('deposits.name', "researches.conformity")
+            ->get()
+            ->toArray();
+        //  dd($deposits);
+        $namesDep2 = [];
+        $countByDepGood = [];
+        $countByDepBad = [];
+        foreach ($deposits as $dep) {
+            if (!in_array($dep["deposit"], $namesDep2))
+                $namesDep2[] = $dep["deposit"];
+            if ($dep["conformity"] == 1)
+                $countByDepGood[] = $dep["count"];
+            else
+                $countByDepBad[] = $dep["count"];
+        }
+
 
         //     $process = new Process(['python', "storage/assets/py/analyse_string.py 2>&1"]);
         //   //  $process = new Process(['python', 'test.py', 'var1', 'var2', 'var3']);
@@ -74,7 +107,7 @@ class ResearchController extends Controller
         $command = escapeshellcmd($cmd);
         $output = shell_exec($command);
         $array = preg_split("/\r\n|\n|\r/", $output);
-        //dd($array);
+        //  dd($array);
         /*
         //chart1
         $all_reservoirs = Reservoir::query('SELECT COUNT(*)');
@@ -112,16 +145,15 @@ class ResearchController extends Controller
 */
 
 
-        $year = ['2015', '2016', '2017', '2018', '2019', '2021'];
 
-        $user = [];
-        foreach ($year as $key => $value) {
-            $user[] = User::where(\DB::raw("DATE_FORMAT(created_at, '%Y')"), $value)->count();
-        }
-        dump($array);
         return view('pages.research', [
-            'year' => json_encode($year, JSON_NUMERIC_CHECK),
-            'user' => json_encode($user, JSON_NUMERIC_CHECK),
+            //1 chart
+            'deposits' => json_encode($namesDep, JSON_NUMERIC_CHECK),
+            'count' => json_encode($countByDep, JSON_NUMERIC_CHECK),
+            //1 chart
+            'deposits2' => json_encode($namesDep2, JSON_NUMERIC_CHECK),
+            'countBad' => json_encode($countByDepBad, JSON_NUMERIC_CHECK),
+            'countGood' => json_encode($countByDepGood, JSON_NUMERIC_CHECK),
             'corr' => $array[0],
             'elbow' => $array[1],
             'clustDot' => $array[2],

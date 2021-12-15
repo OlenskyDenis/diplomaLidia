@@ -64,6 +64,8 @@
     <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
         <div class="container">
 
+            <canvas id="canvas" height="280" width="600"></canvas>
+            <canvas id="canvas2" height="280" width="600"></canvas>
 
             <div class="row">
                 <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
@@ -129,17 +131,16 @@
 @endsection
 
 @section('custom-js')
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script>
-        var year = <?php echo $year; ?>;
-        var user = <?php echo $user; ?>;
+        var deposits = <?= $deposits ?>;
+        var count = <?= $count ?>;
         var barChartData = {
-            labels: year,
+            labels: deposits,
             datasets: [{
-                label: 'User',
-                backgroundColor: "pink",
-                data: user
+                label: 'Кількість досліджень',
+                backgroundColor: "gray",
+                data: count
             }]
         };
 
@@ -159,7 +160,52 @@
                     responsive: true,
                     title: {
                         display: true,
-                        text: 'Yearly User Joined'
+                        text: 'Загальна кількість досліджень за родовищами',
+                        fontSize: 22
+                    }
+                }
+            });
+        };
+    </script>
+
+    <script>
+        var deposits = <?= $deposits2 ?>;
+        var countGood = <?= $countGood ?>;
+        var countBad = <?= $countBad ?>;
+        var barChartData = {
+            labels: deposits,
+            datasets: [{
+                    label: 'Водойми з якісною водою',
+                    //  backgroundColor: "gray",
+                    data: countGood,
+                    backgroundColor: "blue",
+                },
+                {
+                    label: 'Водойми з не якісною водою',
+                    data: countBad,
+                    backgroundColor: "red"
+                }
+            ]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvas2").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Відношення водойм за якістю води за родовищами',
+                        fontSize: 22
                     }
                 }
             });
