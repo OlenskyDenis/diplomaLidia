@@ -15,7 +15,7 @@ class CreateResearchesTable extends Migration
     {
         Schema::create('researches', function (Blueprint $table) {
             $table->id();
-            $table->int('lkp');
+            $table->integer('lkp');
             $table->float('bsk5');
             $table->float('hsk');
             $table->float('soluble_oxygen');
