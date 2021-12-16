@@ -20,6 +20,7 @@ Route::get('/research', [ResearchController::class, 'index'])->name("research");
 //-
 // Route::get('/python', [ResearchController::class, 'python'])->name("python");
 
+Route::post('/send_application', [ContactController::class, 'send_application'])->name("send_application");
 
 Route::get('/deposits', [DepositController::class, 'index'])->name("deposits");
 

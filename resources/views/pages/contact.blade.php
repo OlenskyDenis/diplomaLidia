@@ -26,14 +26,14 @@
                             <div class="info-box">
                                 <i class="bx bx-envelope"></i>
                                 <h3>Напишіть нам</h3>
-                                <p>info@example.com<br>contact@example.com</p>
+                                <p>olc-zhitomir@ukr.net</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="info-box">
                                 <i class="bx bx-phone-call"></i>
                                 <h3>Зателефонуйте нам</h3>
-                                <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                                <p>0412-43-18-09<br>0412 340 408</p>
                             </div>
                         </div>
                     </div>
@@ -41,22 +41,22 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    {{-- <form method="POST" action="{{ route('welcome.login') }}"> --}}
+                    <form action="{{route('send_application')}}" method="post" role="form" class="php-email-form">
+                        @csrf
                         <div class="form-group ">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Ім'я" required>
+                            <input type="text" name="user_name" class="form-control" id="name" placeholder="Ім'я" required>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mt-3 form-group">
-                                <input type="tel" class="form-control" {{-- pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3}" --}} name="tel" id="tel"
-                                    placeholder="Номер телефону" required>
+                                <input type="tel" id="phone" name="phone_number" pattern="[0-9]{10}" placeholder="Номер телефону" required oninvalid="this.setCustomValidity('Номер із 10-ти символів!')"  oninput="setCustomValidity('')">
                             </div>
                             <div class="col-md-6 form-group mt-3">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email"
-                                    required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <select class="form-control" name="id_research" id="id_research"
+                            <select class="form-control" name="research_type_id" id="id_research"
                                 placeholder="Категорія питання" required>
                                 <option value="other">Категорія питання</option>
                                 @foreach ($research_types as $type)
@@ -65,7 +65,7 @@
                             </select>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Тема"
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Тема"
                                 required>
                         </div>
                         <div class="form-group mt-3">
