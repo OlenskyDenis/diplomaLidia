@@ -19,22 +19,22 @@ class ResearchController extends Controller
 {
 
     //added 13/12/2021 16:05
-    public function index(Request $request)
-    {
-        $research = new Reservoir();
-        $researches = $research->all();
-        //$method = $request->method();
+    // public function index(Request $request)
+    // {
+    //     $research = new Reservoir();
+    //     $researches = $research->all();
+    //     //$method = $request->method();
 
-        if ($request->isMethod('post')) {
-            // dd($_POST['agent_id']);
-            exec("python storage/assets/py/analyse_string.py 2>&1 " . $_POST['agent_id'], $output);
-            dd($output);
-        }
+    //     if ($request->isMethod('post')) {
+    //         // dd($_POST['agent_id']);
+    //         exec("python storage/assets/py/analyse_string.py 2>&1 " . $_POST['agent_id'], $output);
+    //         dd($output);
+    //     }
 
-        return view('pages.research2', ["reserv" => $researches]);
-    }
+    //     return view('pages.research2', ["reserv" => $researches]);
+    // }
 
-    public function python()
+    public function index()
     {
         //загальна к-ть досліджень за родовищами
         $research = new Research();

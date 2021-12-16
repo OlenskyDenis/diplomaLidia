@@ -68,6 +68,13 @@
 
             <canvas id="canvas2" height="280" width="600"></canvas>
 
+            <div class="member-info">
+                <h4>Якісні та не якісні родовища</h4>
+            </div>
+            <div class="member-img">
+                <img src={{ asset('storage/assets/py/deposits.png') }} class="img-fluid" alt="">
+                {{-- <img src="{{ $countByDate }}" class="img-fluid" alt="" /> --}}
+            </div>
             <div class="row">
                 <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
                     <div class="member">
@@ -84,22 +91,45 @@
                                 залежності. Чим ближчий цей показник до 0, тим менший зв'язок, чим ближчий він до ±1 – тим
                                 зв'язок більш тісніший.</p>
                         </div>
-                        <div class="member-info">
-                            <h4>Кількість проведених досліджень за роками та місяцями</h4>
-                        </div>
-                        <div class="member-img">
-                            <img src={{ asset('storage/assets/py/countByDate.png') }} class="img-fluid" alt="">
-                            {{-- <img src="{{ $countByDate }}" class="img-fluid" alt="" /> --}}
-                        </div>
-                        <div class="member-info">
-                            <h4>Якісні та не якісні родовища</h4>
-                        </div>
-                        <div class="member-img">
-                            <img src={{ asset('storage/assets/py/deposits.png') }} class="img-fluid" alt="">
-                            {{-- <img src="{{ $countByDate }}" class="img-fluid" alt="" /> --}}
-                        </div>
 
 
+                        <div class="member">
+                            <div class="member-info">
+                                <h4>Метод для визначення кількості кластерів</h4>
+                            </div>
+                            <div class="member-img">
+                                <img src={{ asset('storage/assets/py/elbow.png') }} class="img-fluid" alt="">
+                                {{-- <img src="{{ $elbow }}" class="img-fluid" alt="" /> --}}
+                            </div>
+                            <div class="member-info">
+                                <p>Завдання угрупування безлічі об'єктів на підмножини (кластери) таким чином, щоб об'єкти з
+                                    одного кластера були більш схожі один на одного, ніж об'єкти з інших кластерів за
+                                    будь-яким
+                                    критерієм. Для визначення кількості кластерів використовується метод "ліктя", що вказав
+                                    необхідність розбиття на 4 кластери.</p>
+                            </div>
+                            <div class="member-info">
+                                <h4>Розбиття на кластери</h4>
+                            </div>
+                            <div class="member-img">
+                                {{-- <img src="{{ $clustDot }}" class="img-fluid" alt="" />
+                                <img src="{{ $clustScat }}" class="img-fluid" alt="" /> --}}
+                                <img src={{ asset('storage/assets/py/clusDot.png') }} class="img-fluid" alt="" />
+                                <img src={{ asset('storage/assets/py/clustScat.png') }} class="img-fluid" alt="" />
+
+                                <div class="member-info">
+                                    <p>За графіками, що отримані методом кластеризації, можемо зробити висновки, що даний
+                                        метод не
+                                        надає прикладних результатів, які можна було б використати на практиці в нашій
+                                        експертній
+                                        системі. Адже як видно на рисунку, кластери утворюються не лише за очікуваною
+                                        ознакою
+                                        «якісна/неякісна вода», проте за багатьма показниками, хоча деякі кластери, все ж
+                                        мають
+                                        більшість або якісних водойм або водойм з не якісною водою.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -123,41 +153,14 @@
                     </div>
                 </div>
 
+                <img src={{ asset('storage/assets/py/avg.png') }} class="img-fluid" alt="" />
 
-                <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
-                    <div class="member">
-                        <div class="member-info">
-                            <h4>Метод для визначення кількості кластерів</h4>
-                        </div>
-                        <div class="member-img">
-                            <img src={{ asset('storage/assets/py/elbow.png') }} class="img-fluid" alt="">
-                            {{-- <img src="{{ $elbow }}" class="img-fluid" alt="" /> --}}
-                        </div>
-                        <div class="member-info">
-                            <p>Завдання угрупування безлічі об'єктів на підмножини (кластери) таким чином, щоб об'єкти з
-                                одного кластера були більш схожі один на одного, ніж об'єкти з інших кластерів за будь-яким
-                                критерієм. Для визначення кількості кластерів використовується метод "ліктя", що вказав
-                                необхідність розбиття на 4 кластери.</p>
-                        </div>
-                        <div class="member-info">
-                            <h4>Розбиття на кластери</h4>
-                        </div>
-                        <div class="member-img">
-                            {{-- <img src="{{ $clustDot }}" class="img-fluid" alt="" />
-                            <img src="{{ $clustScat }}" class="img-fluid" alt="" /> --}}
-                            <img src={{ asset('storage/assets/py/clusDot.png') }} class="img-fluid" alt="" />
-                            <img src={{ asset('storage/assets/py/clustScat.png') }} class="img-fluid" alt="" />
-                            <img src={{ asset('storage/assets/py/avg.png') }} class="img-fluid" alt="" />
-                        </div>
-                        <div class="member-info">
-                            <p>За графіками, що отримані методом кластеризації, можемо зробити висновки, що даний метод не
-                                надає прикладних результатів, які можна було б використати на практиці в нашій експертній
-                                системі. Адже як видно на рисунку, кластери утворюються не лише за очікуваною ознакою
-                                «якісна/неякісна вода», проте за багатьма показниками, хоча деякі кластери, все ж мають
-                                більшість або якісних водойм або водойм з не якісною водою.</p>
-                        </div>
-
-                    </div>
+                <div class="member-info">
+                    <h4>Кількість проведених досліджень за роками та місяцями</h4>
+                </div>
+                <div class="member-img">
+                    <img src={{ asset('storage/assets/py/countByDate.png') }} class="img-fluid" alt="">
+                    {{-- <img src="{{ $countByDate }}" class="img-fluid" alt="" /> --}}
                 </div>
 
             </div>
