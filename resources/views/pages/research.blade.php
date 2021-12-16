@@ -72,62 +72,94 @@
                 <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
-                            <h4>Кореляція</h4>
+                            <h4>Таблиця кореляції</h4>
                         </div>
                         <div class="member-img">
                             <img src={{ asset('storage/assets/py/corr.png') }} class="img-fluid" alt="">
+                            {{-- <img src="{{ $corr }}" class="img-fluid" alt="" /> --}}
                         </div>
                         <div class="member-info">
-                            <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
-                                dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae
-                                perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea
-                                non est corporis in.</p>
+                            <p>Коефіцієнт кореляції – показник, який використовують для вимірювання щільності зв'язку між
+                                результативними і факторними ознаками у кореляційно-регресійній моделі за лінійної
+                                залежності. Чим ближчий цей показник до 0, тим менший зв'язок, чим ближчий він до ±1 – тим
+                                зв'язок більш тісніший.</p>
                         </div>
+                        <div class="member-info">
+                            <h4>Кількість проведених досліджень за роками та місяцями</h4>
+                        </div>
+                        <div class="member-img">
+                            <img src={{ asset('storage/assets/py/countByDate.png') }} class="img-fluid" alt="">
+                            {{-- <img src="{{ $countByDate }}" class="img-fluid" alt="" /> --}}
+                        </div>
+                        <div class="member-info">
+                            <h4>Якісні та не якісні родовища</h4>
+                        </div>
+                        <div class="member-img">
+                            <img src={{ asset('storage/assets/py/deposits.png') }} class="img-fluid" alt="">
+                            {{-- <img src="{{ $countByDate }}" class="img-fluid" alt="" /> --}}
+                        </div>
+
+
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+
+                <div class="col-lg-4 col-md-4 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
-                            <h4>Walter White</h4>
+                            <h4>Лінії трендів показників</h4>
+                        </div>
+                        <div class="member-info">
+                            <p>Проста лінійна регресія є підходом для прогнозування кількісної відповіді з використанням
+                                однієї ознаки. За лінією тренду ми можемо спостерігати тенденцію зміни показника. Можна
+                                порівнювати торимані значення із нормативами, та зрозуміти чи налижається з роками показник
+                                до норми, що призводить до поліпшення якості води
+                                родовищ Житомирщини.</p>
                         </div>
                         <div class="member-img">
                             <img src={{ asset('storage/assets/py/linetrend.png') }} class="img-fluid" alt="">
+                            {{-- <img src="{{ $trendLines }}" class="img-fluid" alt="" /> --}}
                         </div>
-                        <div class="member-info">
-                            <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
-                                dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae
-                                perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea
-                                non est corporis in.</p>
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-12 d-flex align-items-stretch">
+
+
+                <div class="col-lg-8 col-md-8 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-info">
-                            <h4>Walter White</h4>
+                            <h4>Метод для визначення кількості кластерів</h4>
                         </div>
                         <div class="member-img">
-                            {{-- <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt=""> --}}
-                            @foreach ($images as $img)
-                                <img src="{{ $img }}" />
-
-                            @endforeach
-                            {{-- <img src="{{ $corr }}" />
-                            <img src="{{ $elbow }}" />
-                            <img src="{{ $clustDot }}" />
-                            <img src="{{ $clustScat }}" />
-                            <img src="{{ $countByDate }}" />
-                            <img src="{{ $trendLines }}" />
-                            <img src="{{ $depGood }}" /> --}}
+                            <img src={{ asset('storage/assets/py/elbow.png') }} class="img-fluid" alt="">
+                            {{-- <img src="{{ $elbow }}" class="img-fluid" alt="" /> --}}
                         </div>
                         <div class="member-info">
-                            <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
-                                dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae
-                                perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea
-                                non est corporis in.</p>
+                            <p>Завдання угрупування безлічі об'єктів на підмножини (кластери) таким чином, щоб об'єкти з
+                                одного кластера були більш схожі один на одного, ніж об'єкти з інших кластерів за будь-яким
+                                критерієм. Для визначення кількості кластерів використовується метод "ліктя", що вказав
+                                необхідність розбиття на 4 кластери.</p>
                         </div>
+                        <div class="member-info">
+                            <h4>Розбиття на кластери</h4>
+                        </div>
+                        <div class="member-img">
+                            {{-- <img src="{{ $clustDot }}" class="img-fluid" alt="" />
+                            <img src="{{ $clustScat }}" class="img-fluid" alt="" /> --}}
+                            <img src={{ asset('storage/assets/py/clusDot.png') }} class="img-fluid" alt="" />
+                            <img src={{ asset('storage/assets/py/clustScat.png') }} class="img-fluid" alt="" />
+                            <img src={{ asset('storage/assets/py/avg.png') }} class="img-fluid" alt="" />
+                        </div>
+                        <div class="member-info">
+                            <p>За графіками, що отримані методом кластеризації, можемо зробити висновки, що даний метод не
+                                надає прикладних результатів, які можна було б використати на практиці в нашій експертній
+                                системі. Адже як видно на рисунку, кластери утворюються не лише за очікуваною ознакою
+                                «якісна/неякісна вода», проте за багатьма показниками, хоча деякі кластери, все ж мають
+                                більшість або якісних водойм або водойм з не якісною водою.</p>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -182,7 +214,7 @@
                     responsive: true,
                     title: {
                         display: true,
-                        text: 'Загальна кількість досліджень за родовищами',
+                        text: 'Загальна кількість досліджень за родовищами (з 2010 року)',
                         fontSize: 22
                     }
                 }
@@ -203,7 +235,7 @@
                     responsive: true,
                     title: {
                         display: true,
-                        text: 'Відношення водойм за якістю води за родовищами',
+                        text: 'Відношення водойм за якістю води за родовищами (з 2010 року)',
                         fontSize: 22
                     }
                 }

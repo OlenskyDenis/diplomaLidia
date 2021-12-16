@@ -53,7 +53,7 @@ class ResearchController extends Controller
             $countByDep[] = $dep["count"];
         }
 
-        //кількість водойм з я
+        //кількість водойм з
         $deposits2 = $research
             ->join('reservoirs', 'researches.reservoir_id', '=', 'reservoirs.id')
             ->join('deposits', 'deposits.id', '=', 'reservoirs.deposit_id')
@@ -72,7 +72,6 @@ class ResearchController extends Controller
             else
                 $countByDepBad[] = $dep["count"];
         }
-
         //  dd($deposits);
 
         //     $process = new Process(['python', "storage/assets/py/analyse_string.py 2>&1"]);
@@ -162,13 +161,14 @@ class ResearchController extends Controller
             'deposits2' => json_encode($namesDep2, JSON_NUMERIC_CHECK),
             'countBad' => json_encode($countByDepBad, JSON_NUMERIC_CHECK),
             'countGood' => json_encode($countByDepGood, JSON_NUMERIC_CHECK),
-            'images' => $array,
-            'corr' => $array[0],
-            'elbow' => $array[1],
-            'clustDot' => $array[2],
-            'clustScat' => $array[3],
-            'countByDate' => $array[4],
-            'trendLines' => $array[5]
+            // 'images' => $array,
+            // 'corr' => $array[0],
+            // 'elbow' => $array[1],
+            // 'clustDot' => $array[2],
+            // 'clustScat' => $array[3],
+            // 'countByDate' => $array[4],
+            // 'trendLines' => $array[5],
+            // 'avg' => $array[6]
         ]);
     }
 
