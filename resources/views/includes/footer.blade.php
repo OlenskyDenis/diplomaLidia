@@ -27,8 +27,8 @@
               10005 <br>
               м.Житомир, вул. В.Бердичівська 64 <br>
               Україна <br><br>
-              <strong>Телефон:</strong> 0412-340-408<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Телефон:</strong> 0412-43-18-09<br>
+              <strong>Email:</strong> olc-zhitomir@ukr.net<br>
             </p>
           </div>
 
@@ -38,7 +38,7 @@
                 та основні напрямки діяльності Установи згідно чинного законодавства України та
                 нормативно-правових актів.</p>
             <div class="social-links mt-3">
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.facebook.com/ДУ-Житомирський-ОЛЦ-МОЗ-України-258832304667350/" class="facebook"><i class="bx bxl-facebook"></i></a>
             </div>
           </div>
 

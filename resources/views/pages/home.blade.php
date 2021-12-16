@@ -26,57 +26,8 @@
         <!-- ======= Графіки ======= -->
         <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
             <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                            </div>
-                            <div class="member-img">
-                                <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
-                                    dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae
-                                    perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea
-                                    non est corporis in.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                            </div>
-                            <div class="member-img">
-                                <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
-                                    dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae
-                                    perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea
-                                    non est corporis in.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                            </div>
-                            <div class="member-img">
-                                <img src={{ asset('storage/assets/img/team/team-1.jpg') }} class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et
-                                    dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae
-                                    perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea
-                                    non est corporis in.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <canvas id="canvas" height="280" width="600"></canvas>
+                <canvas id="canvas2" height="280" width="600"></canvas>
             </div>
         </section>
         <div class="section-title">
@@ -134,4 +85,80 @@
 @endsection
 
 @section('custom-js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+        var deposits = <?= $deposits ?>;
+        var count = <?= $count ?>;
+        var barChartData = {
+            labels: deposits,
+            datasets: [{
+                label: 'Кількість досліджень',
+                backgroundColor: "gray",
+                data: count
+            }]
+        };
+        var deposits2 = <?= $deposits2 ?>;
+        var countGood = <?= $countGood ?>;
+        var countBad = <?= $countBad ?>;
+        var barChartData2 = {
+            labels: deposits2,
+            datasets: [{
+                    label: 'Водойми з якісною водою',
+                    //  backgroundColor: "gray",
+                    data: countGood,
+                    backgroundColor: "blue",
+                },
+                {
+                    label: 'Водойми з не якісною водою',
+                    data: countBad,
+                    backgroundColor: "red"
+                }
+            ]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Загальна кількість досліджень за родовищами (з 2010 року)',
+                        fontSize: 22
+                    }
+                }
+            });
+
+            var ctx = document.getElementById("canvas2").getContext("2d");
+            window.myBar2 = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData2,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Відношення водойм за якістю води за родовищами (з 2010 року)',
+                        fontSize: 22
+                    }
+                }
+            });
+        };
+    </script>
+
 @endsection
