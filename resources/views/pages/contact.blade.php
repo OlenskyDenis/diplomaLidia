@@ -42,31 +42,33 @@
 
                 <div class="col-lg-6">
                     {{-- <form method="POST" action="{{ route('welcome.login') }}"> --}}
-                    <form action="{{route('send_application')}}" method="post" role="form" class="php-email-form">
+                    <form action="{{ route('send_application') }}" method="post" role="form" class="php-email-form">
                         @csrf
                         <div class="form-group ">
-                            <input type="text" name="user_name" class="form-control" id="name" placeholder="Ім'я" required>
+                            <input type="text" name="user_name" class="form-control" id="name" placeholder="Ім'я"
+                                required>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mt-3 form-group">
-                                <input type="tel" id="phone" name="phone_number" pattern="[0-9]{10}" placeholder="Номер телефону" required oninvalid="this.setCustomValidity('Номер із 10-ти символів!')"  oninput="setCustomValidity('')">
+                                <input type="tel" id="phone" name="phone_number" pattern="[0-9]{10}"
+                                    placeholder="Номер телефону" required
+                                    oninvalid="this.setCustomValidity('Номер із 10-ти символів!')"
+                                    oninput="setCustomValidity('')">
                             </div>
                             <div class="col-md-6 form-group mt-3">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                    required>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <select class="form-control" name="research_type_id" id="id_research"
-                                placeholder="Категорія питання" required>
-                                <option value="other">Категорія питання</option>
+                            <select class="form-control" name="research_type_id" id="id_research" required>
                                 @foreach ($research_types as $type)
                                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Тема"
-                                required>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Тема" required>
                         </div>
                         <div class="form-group mt-3">
                             <textarea class="form-control" name="message" rows="3" placeholder="Повідомлення"

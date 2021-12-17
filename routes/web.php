@@ -9,6 +9,7 @@ use App\Http\Controllers\ResearchTypeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReservoirController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\vendor\voyager\VoyagerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
@@ -24,7 +25,9 @@ Route::post('/send_application', [ContactController::class, 'send_application'])
 
 Route::get('/deposits', [DepositController::class, 'index'])->name("deposits");
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('/', [VoyagerController::class, 'index'])->name('voyager.dashboard');
+    Route::post('/predict', [VoyagerController::class, 'predict'])->name('predict');
+    Route::post('/research/store', [VoyagerController::class, 'research_store'])->name('research.store');
 });
